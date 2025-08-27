@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router'
-import { CoursesPage } from './pages/courses-page'
+import { CoursesPage } from './pages/courses/courses-page'
 
 export const router = createBrowserRouter([
   {
