@@ -1,13 +1,23 @@
 import { useCourses } from './use-courses'
 
 export function CoursesPage() {
-  const { courses, isLoading } = useCourses()
+  const { courses, isLoading, isError } = useCourses()
+
+  if (isError) {
+    return (
+      <div className="flex items-center justify-center flex-1">
+        <div className="text-sm text-muted-foreground">
+          <p>Oops, something went wrong while loading courses.</p>
+        </div>
+      </div>
+    )
+  }
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-pulse">
-          <div className="w-2 h-2 bg-gray-300 rounded-full animate-bounce"></div>
+      <div className="flex items-center justify-center flex-1">
+        <div className="text-sm text-muted-foreground">
+          <p>Loading courses...</p>
         </div>
       </div>
     )
@@ -15,12 +25,12 @@ export function CoursesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-2xl mx-auto px-6 py-20">
+      <div className="max-w-2xl px-6 py-20 mx-auto">
         <header className="mb-20">
-          <h1 className="text-3xl font-light text-gray-900 mb-3 tracking-tight">
+          <h1 className="mb-3 text-3xl font-light tracking-tight text-gray-900">
             Courses
           </h1>
-          <p className="text-gray-500 text-base font-light">
+          <p className="text-base font-light text-gray-500">
             Available learning materials
           </p>
         </header>
@@ -31,20 +41,20 @@ export function CoursesPage() {
               key={course.id}
               className="group"
             >
-              <div className="space-y-4 pb-12 border-b border-gray-50 last:border-b-0">
-                <h2 className="text-xl font-medium text-gray-900 leading-tight group-hover:text-gray-700 transition-colors duration-200">
+              <div className="pb-12 space-y-4 border-b border-gray-50 last:border-b-0">
+                <h2 className="text-xl font-medium leading-tight text-gray-900 transition-colors duration-200 group-hover:text-gray-700">
                   {course.attributes.title}
                 </h2>
 
                 {course.attributes.summary ? (
-                  <p className="text-gray-600 leading-relaxed max-w-prose">
+                  <p className="leading-relaxed text-gray-600 max-w-prose">
                     {course.attributes.summary}
                   </p>
                 ) : null}
 
-                <div className="flex items-center gap-6 text-sm text-gray-400 font-light">
+                <div className="flex items-center gap-6 text-sm font-light text-gray-400">
                   {course.attributes.category ? (
-                    <span className="capitalize tracking-wide">
+                    <span className="tracking-wide capitalize">
                       {course.attributes.category}
                     </span>
                   ) : null}
@@ -66,7 +76,7 @@ export function CoursesPage() {
                     {course.attributes.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full font-medium tracking-wide"
+                        className="px-3 py-1 text-xs font-medium tracking-wide text-gray-600 rounded-full bg-gray-50"
                       >
                         {tag}
                       </span>
@@ -79,11 +89,11 @@ export function CoursesPage() {
         </div>
 
         {!courses.length && !isLoading ? (
-          <div className="text-center py-24">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gray-50 flex items-center justify-center">
-              <div className="w-6 h-6 border-2 border-gray-300 rounded border-dashed"></div>
+          <div className="py-24 text-center">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-gray-50">
+              <div className="w-6 h-6 border-2 border-gray-300 border-dashed rounded"></div>
             </div>
-            <p className="text-gray-400 font-light">No courses available</p>
+            <p className="font-light text-gray-400">No courses available</p>
           </div>
         ) : null}
       </div>
