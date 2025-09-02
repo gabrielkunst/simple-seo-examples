@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link
       rel="icon"
-      type="image/x-icon"
+      type="favicon.ico"
       href="/favicon.ico"
     />
     <meta
@@ -17,6 +17,7 @@
       property="og:title"
       content="Mike Works - Developer Courses"
     />
+
     <meta
       name="description"
       content="Deep dive into programming concepts and best practices from industry experts."
@@ -25,10 +26,12 @@
       property="og:description"
       content="Master the fundamentals and advanced topics in development with our expert-led, hands-on courses. Start your deep dive now!"
     />
+
     <meta
       property="og:site_name"
       content="Mike Works"
     />
+
     <meta
       property="og:image"
       content="https://files.mike.works/courses/30/course_banner_30_thumb2x.png"
@@ -41,10 +44,12 @@
       property="og:image:height"
       content="630"
     />
+
     <meta
       property="og:image:alt"
       content="A vibrant banner for Mike Works developer courses showing a programmer at work."
     />
+
     <meta
       property="og:type"
       content="website"
@@ -53,6 +58,7 @@
       property="og:url"
       content="https://simple-seo-examples.vercel.app"
     />
+
     <meta
       name="twitter:card"
       content="summary_large_image"
@@ -70,75 +76,32 @@
       content="https://files.mike.works/courses/30/course_banner_30_thumb2x.png"
     />
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@graph": [
+        "@type": "Organization",
+        "name": "Mike Works",
+        "url": "https://simple-seo-examples.vercel.app/",
+        "logo": "https://files.mike.works/logo.png"
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
           {
-            "@type": "WebSite",
-            "@id": "https://simple-seo-examples.vercel.app/#website",
-            "url": "https://simple-seo-examples.vercel.app/",
-            "name": "Mike Works",
-            "publisher": {
-              "@id": "https://simple-seo-examples.vercel.app/#organization"
-            },
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://simple-seo-examples.vercel.app/search?q={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Courses",
+            "item": "https://simple-seo-examples.vercel.app/courses"
           },
           {
-            "@type": "Organization",
-            "@id": "https://simple-seo-examples.vercel.app/#organization",
-            "name": "Mike Works",
-            "url": "https://simple-seo-examples.vercel.app/",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://files.mike.works/logo.png"
-            },
-            "sameAs": [
-              "https://twitter.com/mikeworks",
-              "https://www.linkedin.com/company/mike-works"
-            ]
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://simple-seo-examples.vercel.app/courses/#webpage",
-            "url": "https://simple-seo-examples.vercel.app/courses/",
-            "name": "Courses Catalog",
-            "isPartOf": {
-              "@id": "https://simple-seo-examples.vercel.app/#website"
-            }
-          },
-          {
-            "@type": "ItemList",
-            "@id": "https://simple-seo-examples.vercel.app/courses/#itemlist",
-            "url": "https://simple-seo-examples.vercel.app/courses/",
-            "numberOfItems": 2,
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "url": "https://simple-seo-examples.vercel.app/courses/react-typescript",
-                "item": {
-                  "@type": "Course",
-                  "name": "Advanced React with TypeScript",
-                  "description": "Master React 18 and TypeScript in production-ready environments."
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "url": "https://simple-seo-examples.vercel.app/courses/graphql-mastery",
-                "item": {
-                  "@type": "Course",
-                  "name": "Fullstack GraphQL Mastery",
-                  "description": "GraphQL, Apollo, and scalable server setups from zero to enterprise."
-                }
-              }
-            ]
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Advanced React with TypeScript",
+            "item": "https://simple-seo-examples.vercel.app/courses/react-typescript"
           }
         ]
       }
